@@ -93,7 +93,21 @@ namespace Student_Enrollment_System
 
         public void DropCourse()
         {
+            Student student = SelectStudent();
 
+            if (student == null)
+            {
+                Console.WriteLine("Student Not Found");
+            }
+            else if (student.courses.Count < 1)
+            {
+                Console.WriteLine("Can't Find Courses");
+            }
+            else
+            {
+                Course courseToAdd = SelectCourse();
+                student.courses.Remove(courseToAdd);
+            }
         }
 
         public void StudentList()
